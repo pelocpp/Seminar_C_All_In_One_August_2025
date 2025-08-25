@@ -126,6 +126,8 @@
     <ClCompile Include="Program.c" />
     <ClCompile Include="Topic_01_Datatypes_Variabes.c" />
     <ClCompile Include="Topic_02_Konstrollstrukturen.c" />
+    <ClCompile Include="Topic_03_Zeiger.c" />
+    <ClCompile Include="Topic_04_Unterprogramme.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

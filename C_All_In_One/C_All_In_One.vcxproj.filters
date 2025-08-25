@@ -24,5 +24,11 @@
     <ClCompile Include="Topic_01_Datatypes_Variabes.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Topic_03_Zeiger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_04_Unterprogramme.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

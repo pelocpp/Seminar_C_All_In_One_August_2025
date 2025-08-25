@@ -2,6 +2,8 @@
 
 extern void variables_datatypes();
 extern void control_structures();
+extern void pointer();
+extern void unterprogramm();
 
 // Hello World
 //int main()
@@ -32,7 +34,7 @@ void eingabe()
 
 int main()
 {
-    eingabe();
+    unterprogramm();
 
     return 0;
 }

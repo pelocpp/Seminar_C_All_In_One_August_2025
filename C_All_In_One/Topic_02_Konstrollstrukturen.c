@@ -111,11 +111,11 @@ void control_structures_if_04()
 
 void control_structures_while_01()
 {
-    int n = 1;
+    int n = 10;
 
     while ( n < 5 )
     {
-       // printf("n: %d\n", n);
+        printf("n: %d\n", n);
 
         n = n + 1;
     }
@@ -188,7 +188,92 @@ void operators_02()
     printf("Done\n");
 }
 
+void control_structures_for_02()
+{
+    for (int i = 0; i != 10; ++i) {
+
+        if (i == 3) {
+            continue;
+        }
+
+        printf("%d: Hello World\n", i);
+
+        if (i == 8) {
+            break;
+        }
+    }
+}
+
+void control_structures_do_while()
+{
+    int n = 1;
+
+    do
+    {
+        printf("%d: Hello World\n", n);
+
+        --n;
+
+    } while (n != 0);
+}
+
+void control_structures_switch()
+{
+    int n = 5;
+
+    switch (n)
+    {
+    case 1:
+        printf("Ist 1\n");
+        break;   // jmp
+    case 2:
+        printf("Ist 2\n");
+        break;   // jmp
+    case 3:
+        printf("Ist 3\n");
+        break;   // jmp
+    default:
+        printf("Ist weder 1, 2 oder 3\n");
+        break;
+    }
+
+    printf("Done\n");
+}
+
+void control_structures_switch_01()
+{
+    int n = 2;
+
+    switch (n)
+    {
+    case 1:
+        printf("Ist Montag\n");
+        break;   // jmp
+    case 2:
+        printf("Ist Dienstag\n");
+        break;   // jmp
+    case 3:
+        printf("Ist Mittwoch\n");
+        break;   // jmp
+    case 4:
+        printf("Ist Donnerstag\n");
+        break;   // jmp
+    case 5:           // Fall-through
+    case 6:           // Fall-through
+    case 7:
+        printf("Ist Wochenende\n");
+        break;   // jmp
+    default:
+        printf("Ist kein Wochentag\n");
+        break;
+    }
+
+    printf("Done\n");
+}
+
+
+
 void control_structures()
 {
-    operators_02();
+    control_structures_switch_01();
 }

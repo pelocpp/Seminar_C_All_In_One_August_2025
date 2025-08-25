@@ -440,3 +440,156 @@ JEDE dieser Folgen ist endlich:  Kann man bis heute mathematisch nicht beweisen 
 
 https://github.com/pelocpp/c_introduction/blob/master/C_Introduction/Exercises/Exercises.md
 
+==========================
+
+Zeiger
+------
+
+Sind im Zentrum von C.
+
+Reihe von Datentypen: Wert.
+
+Auch Datentypen:  Adressen im Speicher darstellen.
+
+Welche Adressen:
+
+i) Variablen
+
+ii) Daten dynamisch allokieren.
+
+Zur Vereinbarung: 
+
+Adresse:  Speicher
+
+In C sieht man hinter einer Adresse einen Wert:
+Damit verknüpft man in C eine Adresse mit einem Datentyp:
+Der Datentyp des Werts, der sich hinter einer bestimmten
+Adresse verbirgt.
+
+
+
+a) Adress-Operator:  &
+
+Beispiel: ip	0x0000005e492ff7a4 {123}	int *
+
+0x 00 00 00 5e 49 2f f7 a4
+
+a4 2f7 f 49 5e 00 00 00
+
++		ip	0x00000074233ef864 {123}	int *
+
+Adresse: 8 Bytes
+
+=================================================
+
+Wozu hat man Adressen in C  ??? Why ????
+
+=================================================
+
+Unterprogrammen:
+
+A) Allgemein: Um mehrere Anweisungen // Folge von Anweisungen
+   unter einem Namen anzuordnen.
+
+   Die Folge der Anweisungen wird durch den Namen aufgerufen.
+
+B) In C unterscheidet man:
+
+  i)  Unterprogramme, die KEIN Ergebnis zurückliefern:
+
+      Der Rückgabetyp ist void in diesem Fall.
+
+        Wording: Subroutine // Unterprogramm
+
+  ii) Unterprogramme, die EIN Ergebnis zurückliefern
+
+  Dann muss es einen Rückgabetyp ungleich void geben.
+
+  Wording: Funktion // Function.
+   
+
+
+
+Vorsicht:
+
+'ausgabe': 'void' function returning a value
+
+DAS IST EIN FEHLER.
+
+warning C4716: 'product': must return a value.
+
+Parameter eines Unterprogramms: Stellvertreter für reale Werte.
+
+==========================================================
+
+Parameterübergabe:
+
+Call-by-Value:    Aufruf-mit-Wert
+
+Call-by-Address:  Aufruf-mit-Adresse
+
+Siehe auch
+
+https://github.com/pelocpp/cpp_introduction/blob/master/Cpp_Introduction/Markdown/ParameterPassingTechniques.md
+
+
+Wozu Adressen:
+
+== Ermöglichen Zugriff auf das Original // nicht auf eine Kopie !!!
+
+== Manchmal: Schutz des Originals:  Dann kann eine Kopie von Vorteil sein !!!
+
+
+
+
+
+Vorsicht:
+
+warning C4047: 'function':
+
+'int *' differs in levels of indirection from 'int'
+
+DAS IST EIN FEHLER !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+====================================================
+
+Was ist der Call-Stack  // Aufruf-Stapel ???
+
+Eine Abbildung // Darstellung aller Variablen des AKTUELLEN Unterprogramms.
+
+=======================================================
+
+Release-Modus:
+
+Keine Debug-Info enthalten  // Langsamer
+
+==> Volle Optimierungsstufe.
+
+=======================================================
+
+for, while und do-while:  break und continue;
+
+Bemerkung:
+
+Ein while und for können "gar-nicht" bzgl. des Rumpfs ausgeführt werden.
+
+Der Rumpf einer do-while Anweisung wird "mindestens" EINMAL ausgeführt.
+
+Beobachtung:  Ein while sieht man "im echten Leben" häufiger.  
+
+=======================================================
+
+switch:
+
+Wozu break ????????????
+
+Hmmm, Dennis Ritchie hat eigentlich mehr die Sichtweise des Maschinencodes
+ vor Augen gehabt:  ===> Sprungbefehl:  jmp
+
+======================================================
+
+Aufgabe:
+
+x: 5, y: 6
+x: 6, y: 5
+
