@@ -5,6 +5,10 @@ extern void control_structures();
 extern void pointer();
 extern void unterprogramm();
 
+void exercise_teuflische_folge();
+void exercise_zinsberechnung();
+void exercise_tauschen();
+
 // Hello World
 //int main()
 //{
@@ -34,7 +38,7 @@ void eingabe()
 
 int main()
 {
-    unterprogramm();
+    exercise_tauschen();
 
     return 0;
 }

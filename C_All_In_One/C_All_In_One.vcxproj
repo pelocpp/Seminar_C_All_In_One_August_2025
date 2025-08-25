@@ -123,6 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="01_Uebung_Teufel.c" />
+    <ClCompile Include="02_Uebung_Zinsen.c" />
+    <ClCompile Include="03_Uebung_Tauschen_Swap.c" />
     <ClCompile Include="Program.c" />
     <ClCompile Include="Topic_01_Datatypes_Variabes.c" />
     <ClCompile Include="Topic_02_Konstrollstrukturen.c" />

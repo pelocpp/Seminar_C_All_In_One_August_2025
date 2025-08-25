@@ -30,5 +30,14 @@
     <ClCompile Include="Topic_04_Unterprogramme.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="01_Uebung_Teufel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="02_Uebung_Zinsen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="03_Uebung_Tauschen_Swap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
