@@ -593,3 +593,24 @@ Aufgabe:
 x: 5, y: 6
 x: 6, y: 5
 
+=====================================================
+
+Zeigerarithmetik
+
+=====================================================
+
+Feedback:  Zu langsam, Zu Schnell, Paschd scho.
+
+=====================================================
+
+Ab Dienstag:
+
+Vorrang und Assoziativität von Operatoren.
+
+Felder (Arrays)
+
+Stack
+
+Zeichen und Zeichenketten
+
+=====================================================
