@@ -1,0 +1,415 @@
+===============================================================
+
+Peter Loos
+
+C All In One
+
+C eine Woche:
+
+Feedback:
+
+== Was sind meine Erwartungen
+== Was bringe ich mit //
+
+     Schon mal C begonnen // anderen Sprachen (Python) // ...
+
+== Überblick über die gesamte Sprache
+== Muss was Spezielles drin sein !?!
+
+===============================================================
+
+Unterlagen:
+
+https://github.com/pelocpp
+
+https://github.com/pelocpp/c_introduction
+
+
+===============================================================
+
+
+
+C++, Java, C#, Python, JavaScript ....
+
+===============================================================
+
+GitHub
+
+===============================================================
+
+
+Allgemeines:
+
+9 bis 17 Uhr
+
+12.30 - 13.30
+
+Übungen 
+
+Mittwoch: Bis 15.30
+
+===============================================================
+
+IDE:  ===>  Visual C/C++ 
+
+===============================================================
+
+Zur IDE:
+
+Visual Studio Community 2022
+
+Versus
+
+Visual Code
+
+===============================================================
+
+Hello World:
+
+"Create a new Project"
+
+"Empty Project"
+
+
+Grundlegende Erstellung eines C-Prgramms:
+
+C höhere Programiersprache:
+
+Wörter:    Token  // Lexikon
+
+Quelltext: ==> Grammatik  // Syntax
+
+Semantik:  ==> Bedeutung des Programms // Tut das Programm das, was es soll.
+
+
+Überprüfung der Syntax: Rechte Maustaste => Compile
+
+
+=====================================
+
+C ist eine format-freie Sprache
+
+Leerzeichen // White-Spaces
+
+=====================================
+
+Phasen der Übersetzung:  // Übersetzungsarchitektur
+
+Ziel der Übersetzung:
+
+Java / C# ==> Zwischencode (Java: Byte-Code)
+
+Zweite Übersetzung: Zwischencode  => Maschinencode
+
+----------------------------------------------------
+
+C/C++:
+
+A) Syntax: ==> Compile
+
+   Wenn Compile erfolgreich:  .c  ==> .obj (Standardisiertes Format)
+
+   Welches Tool überprüft die Syntax: der COMPILER (Übersetzer)
+
+B) Maschinencode: ==> Build:  .obj ==> .exe (Windows, Maschinencode)
+
+   Welches Tool baut aus (mehreren) .obj-Dateien die Maschinencodedatei:
+
+   LINKER
+
+==========================================================
+
+unresolved external symbol main referenced
+
+in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+
+==========================================================
+
+Quelltext ==> Compiler (.obj) ==> (.obj) Linker ===> (.exe) Maschinencode.
+
+==========================================================
+
+Vorgriff:  Unterprogramms
+
+==========================================================
+
+Vorsicht:
+
+C: no bool , no string
+
+====================================
+
+Ablage der Zahl 123 im Speicher ???
+
+Wie steht der Wert im Speicher ???
+
+In Binär.
+
+Binäre Darstellung: Zweier-Komplement.
+
+Microcomputertechnik ==> Zahlensysteme.
+
+C Datentypen:
+
+int, long, short, long long:      Ganzzahlige Datentypen !
+
+   Wieso mehrere ...  Unterschiedliche Wertebereiche.
+
+   a) Wie wird er interpretiert: ganze Zahl
+   b) Wie groß können seine Werte sein (Anzahl der Bytes / Bits im Speicher )
+
+   Byte: (?? Welcher C-Datentyp):  -128 .. +127
+
+   2 Bytes: Word C-Datentyp:  short
+
+   -32.768 ... +32.767
+
+Bemerkung:
+
+short ==> -32.768 ... +32.767   // 16 Bits
+
+Man könnte auch sagen:
+
+Ich will den Wertebereich 0 .. 65.535 mit 16 Bits haben:
+
+===> Das oberste Bit soll NICHT als Vorzeichen interpretiert werden.
+
+Datentyp:  
+
+unsigned short ==> 0 .. 65.535 
+signed short   ==> -32.768 ... +32.767
+
+
+Die Anzahl der Bytes kann man bestimmen:  sizeof
+
+--------------------------------------------------------
+
+float, double:
+
+Was ist ein float-Wert:  Ein Komma-Wert
+
+Da kann es zu Ungenauigkeiten kommen.
+
+Das interne Format:  IEEE
+
+https://www.h-schmidt.net/FloatConverter/IEEE754.html
+
+
+Zu den Konstanten:  123.456
+
+i)   123.456                ===> (Lexikon): double
+
+ii)  123.456f oder 123.456F ===> (Lexikon): float
+
+
+
+
+====================================================
+
+Wert in binäre Darstellung.
+
+123.456
+
+char
+
+Zeichenkette (string)
+
+Pointer / Adresse
+
+Struktur // struct
+Union // union
+
+================================================
+
+Ein C-Projekt // mehrere Dateien.
+
+Beobachtung:
+
+printf wird aufgerufen - es fehlt das entsprechende Include:
+
+Warning:
+'printf' undefined; assuming extern returning int
+
+Das ist eigentlich ein Fehler !!!!!!!!!!
+
+Man sollte - in C - Warnings tunlichst vermeiden !!!!
+
+Es fehlt
+
+#include <stdio.h>
+
+Standard Input Output
+
+Noch eine Warnung:
+
+1>Datatypes_Variabes.c(19,15): warning C4305: 'initializing':
+
+  truncation from 'double' to 'float'
+
+
+'variables_datatypes' undefined; assuming extern returning int
+
+Wie kann man das vermeiden ???
+
+Wie kann man ein Unterprogramm in einer anderen Datei aufrufen ????
+
+extern-Deklaration.
+
+============================================================
+
+Kontroll-Strukturen:
+
+if - Anweisung  / if - Statement
+
+SYNTAX:
+
+if ( bedingung ) 
+{
+     // ein oder mehrere Anweisungen
+}
+
+
+Was ist eine Bedingung ???
+
+In vielen anderen Sprachen: bool-Wert:  true / false
+
+C:
+
+Eine Bedingung wird auf einen ganzzahligen Wert zurückgeführt:
+
+a) Wert == 0:       Bedingung ist NICHT erfüllt
+
+b) Wert ungleich 0: Bedingung ist erfüllt
+
+Beispiel:
+
+    int m = ....;
+
+    if (m)  // geht, ungleich 0 wird abgefragt ....
+    {
+        printf("Bedingung erfuellt\n");
+    }
+
+    Besser:
+
+    if (m != 0)  // geht,besser lesbar !!!
+    {
+        printf("Bedingung erfuellt\n");
+    }
+
+================================================
+
+Bedingungen LOGISCH miteinander verknüpfen.
+
+============================================================
+
+Kontroll-Strukturen:
+
+while - Anweisung  / while - Statement
+
+Wiederholungsanweisung:
+
+SYNTAX: 
+
+while ( bedingung )
+{
+    // ein oder mehrere Anweisungen
+}
+
+============================================================
+
+Debugger:   Tool
+
+Führt ein Programm kontrolliert aus // Anweisung für Anweisung.
+
+==> TESTEN  / Verifizieren: tut das Programm das, was wir erwarten (Semantik)
+
+4 magische Tasten:
+
+F9:  Haltepunkt
+F5:  Go // Laufe ... bis zum nächsten Haltepunkt
+
+F10: Einzelschritt // eine Anweisung // alles, was in EINER Zeile steht.
+     Unterprogramm werden NICHT betreten.
+
+F11: Einzelschritt // ein Unterprogramm wird betreten
+
+===============================================================
+
+void control_structures_while_01()
+{
+    int n = 1;
+
+    while ( n < 5 )
+    {
+        n = n + 1;
+    }
+
+    printf("Done\n");
+}
+
+In Maschinencode:  MOV, CMP (Compare), JGE (Jump  Greater Equal), INC (increment)
+                   LEA (Load Effective Address)
+
+
+                   eax:  Akku // Akkumulator  // Zentrale Rechenregister
+
+    int n = 1;
+00007FF791B3422C  mov         dword ptr [n],1  
+
+    while ( n < 5 )
+00007FF791B34233  cmp         dword ptr [n],5  
+00007FF791B34237  jge         control_structures_while_01+33h (07FF791B34243h)  
+    {
+       // printf("n: %d\n", n);
+
+        n = n + 1;
+00007FF791B34239  mov         eax,dword ptr [n]  
+00007FF791B3423C  inc         eax  
+00007FF791B3423E  mov         dword ptr [n],eax  
+    }
+00007FF791B34241  jmp         control_structures_while_01+23h (07FF791B34233h)  
+
+    printf("Done\n");
+00007FF791B34243  lea         rcx,[string "Done\n" (07FF791B3ACA0h)]  
+00007FF791B3424A  call        printf (07FF791B3119Fh)  
+00007FF791B3424F  nop  
+}
+
+===============================================================
+
+Dennis Ritchie:
+
+C sollte kompakt sein.
+
+So kurz wie möglich  // C war nicht als Sprache zum Lernen konzipiert.
+
+Kompaktheit: Ist manchmal mit Nebenwirkungen verbunden: VORSICHT !!!
+
+    if (n < m && x < y++) {
+        printf("bin hier\n");
+    }
+
+Man "sieht" hier ein y++ :
+
+
+VORSICHT: Dieses muss nicht ausgeführt werden ????????
+
+Wieso ???
+
+Logisches UND: Ist die erste Bedingung NICHT erfüllt,
+so wird die zweite Bedingung überhaupt nicht AUSGEFÜHRT !!!!
+
+Short - Circuit Evaluation:
+
+Abbruch der gesamten Auswertung einer Bedingung,
+wenn deren vorzeitiges Ergebnis "früher" feststeht.
+
+Wieso sind derartige Optionen in C enthalten:
+
+Dennis Ritchie: "A programmer knows what he does"  :)
+
+==> Vieles, was eigentlich ein Fehler ist, wird in C als Warning gemeldet.
+
+
+===============================================================
