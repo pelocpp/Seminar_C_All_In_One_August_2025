@@ -271,9 +271,45 @@ void control_structures_switch_01()
     printf("Done\n");
 }
 
+void operators_precedence()
+{
+    int n = 1 + 2 * 3;
 
+    int x = 1;
+    int y = 2;
+    int a = 3;
+    int b = 4;
+
+    if ( (a > b &&  x < y) || (a <= b && x <= y) )
+        ;   // empty statement
+
+    // left-to right oder right-to-left
+    int result = x - y - a;  // (1 - 2) - 3 = -1 -3 = -4
+                             // 1 - (2 - 3) = 1 - (-1) = 2
+
+    a = b = x = 3;
+
+    // Auch eine Wertzuweisung hat ein Ergebnis // bzw. einen Wert
+    // Trivial: x = 3 + 4;  // Addition: +
+  
+    a = (b = (x = 3+4));  // right - to - left
+
+    printf("n: %d\n", n);
+
+    x = (a >= b) ? 10 : 20;
+
+    for (int i = 0; i != 3; ++i) {
+        printf("hello\n");
+    }
+
+    if (a == 7) {
+        return;
+    }
+        
+    printf("Done\n");
+}
 
 void control_structures()
 {
-    control_structures_switch_01();
+    operators_precedence();
 }

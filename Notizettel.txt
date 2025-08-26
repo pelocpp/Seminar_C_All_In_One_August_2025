@@ -24,10 +24,17 @@ https://github.com/pelocpp
 
 https://github.com/pelocpp/c_introduction
 
-
 ===============================================================
 
+Ab Dienstag:
 
+Felder (Arrays)
+
+Stack
+
+Zeichen und Zeichenketten
+
+=====================================================
 
 C++, Java, C#, Python, JavaScript ....
 
@@ -601,16 +608,163 @@ Zeigerarithmetik
 
 Feedback:  Zu langsam, Zu Schnell, Paschd scho.
 
-=====================================================
-
-Ab Dienstag:
-
-Vorrang und Assoziativität von Operatoren.
-
-Felder (Arrays)
-
-Stack
-
-Zeichen und Zeichenketten
 
 =====================================================
+
+Nachträge zu den Operatoren:
+
+== Vorrang // Präzedenz
+
+== Assoziativität
+
+== Stelligkeit
+
+unäre Operatoren: Operatoren mit EINEM Operanden:
+
+   ++ x;
+
+   - x;
+
+   + x;
+
+binäre Operatoren: Operatoren mit ZWEI Operanden:
+
+   a + b;    + Operator hat ZWEI Operanden
+   
+ternäre Operatoren: Operatoren mit DREI Operanden:
+
+  ?:
+
+  SYNTAX:
+
+  bedingung ? expression1 : expression2 ;
+
+  Wert des Ausdrucks: Entweder der Wert von expression1 oder expression2,
+  je nach dem Wert der 'bedingung':
+  true => expression1
+  false => expression2
+
+  Beispiel:
+
+      x = (a > b) ? 10 : 20;
+
+      if (a > b) {
+          x = 10;
+      }
+      else {
+          x = 20;
+      }
+
+
+    ODER:  
+    
+    return (a > b) ? 10 : 20;
+
+============================================
+
+Feld // Array
+
+Vergleich:
+
+C# / Java:     int[] zahlen = new 
+
+C:
+ 
+ Ein Feld hat eine FESTE GRÖSSE !!!!!!! Durch einen KONSTANTEN Wert festgelegt werden.
+
+ Bemerkung:
+
+ Für Variablen, die NICHT vorbelegt sind,
+ wird ein spezielles Muster in den Speicher geschrieben:
+ 0xCC == Visual C++
+
+ Vorsicht !!!!!!!!!!!!!!!!!
+
+Falsche Indices für Felder in C werden NICHT zur Laufzeit
+überprüft !!!!!!!!!!!!!!!
+
+Wie läuft das Programm dann ab:
+
+UB:  Undefined Behaviour
+
+== Es läuft - wir erkennen keine Fehler 
+== Es stürzt ab
+== Sporadische Feher / Abstürze
+
+In C#/ Java wird ein Programm im Kontext einer virtuellen Maschine ausgeführt.
+(JVM, CLR) ==> Hier werden Indices kontrolliert ==> Abbruch 
+Kontrolliert // Exception // könnte man fangen (try .. catch)
+
+============================================================
+
+Es gibt Anweisungen der Gestalt
+
+#define Max 5
+
+Die ist eine Preprocessor-Anweisung (Präprozessor):
+
+Was ist der Präprozessor:
+
+Tool, welches eine Textersetzung / Textaustausch vornimmt:
+
+Jedes Vorkommen von Max ==> 5
+
+Ausnahmen:  "Maximum"
+
+Auch 
+
+#include <stdio.h>
+
+ist eine Präprozessor-Anweisung.
+
+Hinweis: 
+
+Der Gebrauch des Präprozessor ist nicht unbedingt Best-Practice:
+
+#define Max 5
+
+Hier laufern Gefahren !!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+==========================================================
+
+Quelltext 
+   ==> Präprozessor 
+   ==> Compiler (.obj) 
+   ==> (.obj) Linker 
+   ==> (.exe) Maschinencode.
+
+==========================================================
+
+Zusammenfassung:
+
+Felder in C:
+
+Fixed-Size !!!
+
+Keine Überprüfung des Index zur Laufzeit !!!
+
+Längenangabe: 
+
+Kann mit #define erfolgen:  // Präprozessor-Anweisung.
+
+Vorsicht bei  Präprozessor-Anweisungen: 
+
+Die Textersetzung wird "wörtlich" genommen.
+
+==========================================================
+
+Struktur eines C-Programms:
+
+== Ein oder mehrere C-Dateien.  // Endung .c
+
+== Ein oder mehrere Header-Dateien.  // Endung .h
+
+   Für zB globale Funktionen
+
+== Es gibt auch Funktionen, die in anderen Dateien NICHT verfügbar sein sollen
+   -- Hilfsfunktionen
+   -- Keyword 'static'
+
+==========================================================
+

@@ -39,5 +39,13 @@
     <ClCompile Include="03_Uebung_Tauschen_Swap.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Topic_05_Arrays.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

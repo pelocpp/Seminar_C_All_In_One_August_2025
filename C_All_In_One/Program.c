@@ -1,13 +1,6 @@
 #include <stdio.h>
 
-extern void variables_datatypes();
-extern void control_structures();
-extern void pointer();
-extern void unterprogramm();
-
-void exercise_teuflische_folge();
-void exercise_zinsberechnung();
-void exercise_tauschen();
+#include "Common.h"
 
 // Hello World
 //int main()
@@ -36,9 +29,12 @@ void eingabe()
     }
 }
 
+
+extern void test_arrays_01();
+
 int main()
 {
-    exercise_tauschen();
+    test_arrays();
 
     return 0;
 }
