@@ -51,6 +51,12 @@
     <ClCompile Include="Topic_08_Address_Arithmetik.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="04_Uebung_Zeichenketten.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_09_Global_Variables.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">

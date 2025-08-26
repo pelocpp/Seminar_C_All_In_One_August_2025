@@ -2,6 +2,10 @@
 
 #include "Common.h"
 
+// ===========================
+// global variables
+int g_globalValue = 123;
+
 // Hello World
 //int main()
 //{
@@ -31,7 +35,7 @@ void eingabe()
 
 int main()
 {
-    test_zeichenketten_verarbeitung();
+    test_using_local_variabes();
 
     return 0;
 }

@@ -1036,3 +1036,90 @@ int chr_insert  (const char* src, int pos, char ch, char* dest, int destLen);
 // Einfügen EINER Zeichenkette
 int  str_insert  (const char* src, int pos, char* toInsert, char* dest, int destLen);
 
+==============================================================
+
+Speicherbereiche eines C–Programms:
+
+(( Kleine Unterschiede zu Java / C# ))
+
+a) Globale Variablen.
+
+i) Definition
+
+In EINER Datei:
+
+int g_globalValue = 123;
+
+ii) Verwendung:
+
+Setzt eine Bekanntmachung voraus:
+
+extern int g_globalValue;
+
+Lebensdauer: Für die gesamte Laufzeit eines Programms !!!
+
+----------------------------------------------------------
+
+a) Lokale Variablen:
+
+Vereinbarung:
+
+In Funkionen // NUR in Funktionen:
+
+Exakter:  In Blöcken
+
+
+===========================================================
+
+Bebachtung:
+
+Ein Header-File ist nicht übersetzbar ?!?
+
+Struktur eines C-Projekts halten:
+
+Viele C Files ====> 
+
+Pro C-File resutiert EIN .obj File
+
+Header-Files enthalten Informationen, zB extern-Deklarationen,
+aber zu einem Header-File wird KEIN .obj File erzeugt.
+
+
+Frage:
+
+void test_using_local_variabes()
+{
+    int n = 123;  // lebt bis zum Ende der Funktion
+    printf("n: %d\n", n);
+
+    {
+        int m = 456;  // lebt bis zum Ende des  Blocks  // { }
+        printf("m: %d\n",m);
+
+        int n = 789; 
+        printf("n: %d\n", n);
+    }
+
+}
+
+Ist in C# nicht übersetzungsfähig !
+
+In C ist das übersetzungsfähig !!!
+
+Stilistisch fragwürdig !!!
+
+Don't go for this feature.
+
+================================================
+
+Speicherbereiche:
+
+Global
+Lokal ==> Stack
+Dynamisch ==> Heap
+
+Strukturen
+
+Dynamische Speicherverwaltung
+
+

@@ -126,6 +126,7 @@
     <ClCompile Include="01_Uebung_Teufel.c" />
     <ClCompile Include="02_Uebung_Zinsen.c" />
     <ClCompile Include="03_Uebung_Tauschen_Swap.c" />
+    <ClCompile Include="04_Uebung_Zeichenketten.c" />
     <ClCompile Include="Program.c" />
     <ClCompile Include="Topic_01_Datatypes_Variabes.c" />
     <ClCompile Include="Topic_02_Konstrollstrukturen.c" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Topic_06_Char_Strings.c" />
     <ClCompile Include="Topic_07_Zeichenkettenverarbeitung.c" />
     <ClCompile Include="Topic_08_Address_Arithmetik.c" />
+    <ClCompile Include="Topic_09_Global_Variables.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
