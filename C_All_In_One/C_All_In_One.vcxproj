@@ -132,6 +132,9 @@
     <ClCompile Include="Topic_03_Zeiger.c" />
     <ClCompile Include="Topic_04_Unterprogramme.c" />
     <ClCompile Include="Topic_05_Arrays.c" />
+    <ClCompile Include="Topic_06_Char_Strings.c" />
+    <ClCompile Include="Topic_07_Zeichenkettenverarbeitung.c" />
+    <ClCompile Include="Topic_08_Address_Arithmetik.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />

@@ -29,13 +29,9 @@ void eingabe()
     }
 }
 
-
-extern void test_arrays_01();
-
 int main()
 {
-    test_arrays();
+    test_zeichenketten_verarbeitung();
 
     return 0;
 }
-

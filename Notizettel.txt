@@ -768,3 +768,271 @@ Struktur eines C-Programms:
 
 ==========================================================
 
+Datentyp char // Zeichen:
+
+Syntax:  Einzelhochkomma für Zeichen !
+
+Ausnahmen:  '\n' (13)  '\r'   (10)
+
+
+Ein char steht für EIN einzelnes Zeichen!
+
+Wie wird ein Zeichen im Speicher abgelegt ?
+
+Binäre Darstellung eines Zeichens ???
+
+ASCII-Tabelle:  
+
+Abbildung von Zeichen auf numerische Werte.
+
+Bebachtung:
+
+Dualität zwischen char und int.
+
+=================================================
+
+Beobachtung:
+
+Wie ist \n definiert.
+
+Unter Windows sind das 2 Zeichen:
+
+0D  0A  // 13 10
+
+Linux uses a single LineFeed character:
+
+'\n'  0x0A  10
+
+History:
+
+So in ASCII, we really still only have Carriage Return \r which is 0x0d (Decimal 13),
+and Line Feed \n, which is 0x0a (Decimal 10).
+
+
+=============================================================
+
+Zeichenketten:
+
+Syntax:  Doppelhochkomma für Zeichenketten !
+
+"12345"
+
+Binäre Darstellung:
+
+Gemäß den ASCII - Werten:
+
+49 50 51 52 53 0
+
+Problem: Wo steht die Länge einer Zeichenkette ???
+
+a) Nirgends !!!
+b) Die terminierende Null
+
+Kleine Fragen:
+
+Wie lang ist die Zeichenkette "12345" ???
+
+i) 5
+
+ii) Gegenfrage: Allgemein oder bzgl. der Ablage im Speicher.
+
+    Ablage im Speicher:  6 Zeichen !!!!
+
+Zweite Frage:
+
+Von welchem Datentyp ist eine Zeichenkette in C ???
+
+"12345"
+
+a) const char* cp;    
+
+b) Feld von Zeichen: char []
+
+Dualität zwischen Feldern des Typs char und Zeichenketten.
+
+======================================================
+
+Zwischen Arrays und Pointern in C gibt es einen DIREKTEN Zusammenhang:
+
+int numbers[10];
+
+Der Bezeichner 'numbers' steht für die ANFANGSADRESSE des Arrays im Speicher.
+
+======================================================
+
+Nebenbei:
+
+C ist in C++ "echt" enthalten - zu 99%.
+
+Ein Beispiel: char* cp = "234"; geht NICHT in C++
+
+Wahrheit: Auch nicht in C - Absturz.
+
+Frage: Wo liegt eine Zeichenkette wir "123" im Speicher ??????????????
+
+Speicherbereiche:
+
+Datenspeicher 
+
+Konkreter: Es kann das Code-Segment sein. Speicher für den Maschinencode.
+
+Historische Gründe
+
+========================================================
+
+Fazit:
+
+Konstante Zeichenkette ("123") sind NICHT schreibbar !!!
+
+Sie liegen in einem schreibgeschützten Datenbereich.
+
+Abhilfe:
+
+Eine Zeichenkette in einen schreibbaren Bereich legen:
+
+ALLES außer einer konstante Zeichenkette :)
+
+ZB ein Feld von Zeichen.
+
+======================================================
+
+Zwischen Arrays und Pointern in C gibt es einen DIREKTEN Zusammenhang:
+
+int numbers[10];
+
+Der Bezeichner 'numbers' steht für die ANFANGSADRESSE des Arrays im Speicher.
+
+Wo spielt das eine Rolle:
+
+Bei der Übergabe eines Felds an ein Unterprogramm.
+--------------------------------------------------
+
+Folgefrage:
+
+Wieviele Elemente sind hinter einer Adresse (Anfangsadresse) vorhanden ???
+
+===> Das weiß man nicht !!!
+
+Konsequenz:
+
+Wie wird ein Feld an ein Unterprogramm übergeben ??????
+
+Antwort: Mit Anfangsadresse UND Längenangabe.
+
+Ausnahme: Zeichenketten:
+
+Da geht es ohne die Längenangabe, weil am Ende der Zeichenkette im Speicher
+ein 0-Wert steht.
+
+
+Achtung:
+
+'printf' : format string '%s' requires an argument of type 'char *',
+but variadic argument 1 has type 'int *'
+
+
+=============================================================
+
+Zeiger-Arithmetik:
+-------------------
+
+Man kann mit Zeigern - in einem gewissen Umfang - rechnen !!!
+
+Beispiel:
+
+int* feld;
+int  i;
+
+feld + i
+
+Was ist feld + i für eine Adresse ??????????
+
+Beispiel: 
+
+In feld steht 0x1024 drin.
+
+Was ist feld + 1 für eine Adresse ???
+
+1. Vermutung: 0x1025 
+
+ABER: Ein int belegt im Speicher 4 Bytes !!!!!
+
+Deshalb bedeutet feld + 1, wenn feld eine int-Adresse ist,
+einen neuen Wert von +4:
+
+ 0x1024 ==> 0x1028
+
+ Realität: Der Index (also zB 1) wird mit der Anzahl Bytes eines int-Werts
+           multipliziert-
+
+===============================================
+
+Zeiger-Arithmetik:
+-------------------
+
+2 Optionen:
+
+Adresse + Offset
+
+++ Adresse          ; 0x1024 ==> 0x1028, wenn die Adresse auf einen int-Wert zeigt
+
+===============================================
+
+Ein Vergleich:
+
+        tmp = *(feld + i);   // Zeiger Arithmetik
+00007FF69528352E  movsxd      rax,dword ptr [rbp+24h]  
+00007FF695283532  mov         rcx,qword ptr [feld]  
+00007FF695283539  mov         eax,dword ptr [rcx+rax*4]  
+00007FF69528353C  mov         dword ptr [rbp+44h],eax  
+
+        tmp = feld[i];         // mit Index-Notation 
+00007FF69528353F  movsxd      rax,dword ptr [rbp+24h]  
+00007FF695283543  mov         rcx,qword ptr [feld]  
+00007FF69528354A  mov         eax,dword ptr [rcx+rax*4]  
+00007FF69528354D  mov         dword ptr [rbp+44h],eax  
+
+Ironische Bemerkung:
+
+"C hat keine Arrays" - wegen der Zeiger-Arithmetik
+
+
+===============================================
+
+Zeichenkettenverarbeitung:
+-------------------------
+
+Benerkung:
+
+warning C4716: 'str_length': must return a value
+
+Aber wir erhalten nur eine Warnung :(((((
+
+
+===============================================================
+
+toUpper:
+
+a) Wenn ch ist kein Buchstabe => in das Ergebnis übernehmen !!!  zB '?'
+
+b) if (ch >= 'a' && ch <= 'z')
+
+   Wie wird aus klein groß ???
+
+   ch = ch - 32;
+
+
+==============================================================
+
+Übungen
+
+static void str_toUpper (char* src);
+
+static void str_reverse (char* src);
+
+// Einfügen EINES Zeichen
+int chr_insert  (const char* src, int pos, char ch, char* dest, int destLen);
+
+// Einfügen EINER Zeichenkette
+int  str_insert  (const char* src, int pos, char* toInsert, char* dest, int destLen);
+
