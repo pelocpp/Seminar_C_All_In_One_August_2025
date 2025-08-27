@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C_All_In_One", "C_All_In_On
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
+		01_Adresse.png = 01_Adresse.png
+		02_Call_by_Value.png = 02_Call_by_Value.png
+		03_Call_by_Address.png = 03_Call_by_Address.png
+		04_Stack_Frame.png = 04_Stack_Frame.png
 		Notizettel.txt = Notizettel.txt
 	EndProjectSection
 EndProject

@@ -105,6 +105,14 @@ void test_using_struct_04()
 
     int cmp = compareTimes(&now, &than);
 
+    if (cmp == 0) {
+        // Nicht gleich
+    }
+
+    if (cmp != 0) {
+        // Nicht gleich
+    }
+
     printf("Vergleich: %d\n", cmp);
 }
 
