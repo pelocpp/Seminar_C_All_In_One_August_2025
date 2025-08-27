@@ -1,6 +1,17 @@
 #include <stdio.h>
 
 // Hilfsfunktion
+
+static void test_arrays_00()
+{
+    // designated array initializer
+    int zahlen[3] = {
+        [0] = 1, [1] = 2, [2] = 3
+    };
+}
+
+
+
 static void test_arrays_01()
 {
     // Vereinbarung// mit Vorbelegung
@@ -30,7 +41,7 @@ static void test_arrays_02()
     // ...
     int n = 10;
 
-    zahlen[n] = 123;
+//    zahlen[n] = 123;
 
     printf("Done!\n");
 }
@@ -64,5 +75,5 @@ static void test_arrays_03()
 
 void test_arrays()
 {
-    test_arrays_03();
+    test_arrays_00();
 }

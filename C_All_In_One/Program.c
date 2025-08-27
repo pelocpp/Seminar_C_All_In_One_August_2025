@@ -36,7 +36,7 @@ void eingabe()
 
 int main()
 {
-    test_using_struct();
+    low_level_programming();
 
     return 0;
 }

@@ -1304,7 +1304,7 @@ Exkurs:
 
 Objekt-Orientierung:
 
-"Objekt-Orientierung in C für Arme".
+"Objekt-Orientierung in C für Arme". 
 
 Wie könnte das aussehen:
 
@@ -1349,14 +1349,187 @@ true: ungleich 0
 
 Ein bool Ersatz für C
 
-
 #include <stdbool.h>
 
 ====================================================
 
-13:30
-=====
+Übung Wallet:
+
+Ein Tipp:
+
+Ist mit 2 Variablen manchmal etwas lästig ...
+
+Tipp:
+
+Man nehme EINE Variable:  Da ist die Realisierung einfacher ....
+
+unsigned int cents;
+
+// Permanent von (Euro, Cent) ==> Cents runtergerechnet werden.
+
+struct wallet
+{
+    unsigned long long m_euros;
+    unsigned int       m_cents;
+};
+
+versus
+
+// Lernen etwas dünne
+struct wallet
+{
+    unsigned int m_cents;
+};
+
+========================================================
+
+Bitweise Operationen bekannt / nicht bekannt
+
+Ein Bit in einem int-Wert setzen / löschen
+
+=======================================================
+
+Ein Vergleich:
+
+    struct Status1 status1;
+    status1.heightValidated = 1;
+00007FF68A516A3E  mov         dword ptr [rbp+0Ch],1     // BP = Base Pointer
+
+    struct Status2 status2;
+    status2.heightValidated = 1;
+00007FF68A516A45  mov         eax,dword ptr [status2]  
+00007FF68A516A48  or          eax,2  
+00007FF68A516A4B  mov         dword ptr [status2],eax  
+
+C und Bitfelder:
+
+Pro:    Ermöglichen eine sehr KOMPAKTE Ablage von komprimierten Informationen (auf der Ebene von Bits)
+
+Contra: Der resultierende Maschinencode ist aufwendiger)
+
+Krux:   Performance versus Speicherbedarf.
+
+=======================================================
+
+Union:
+
+Sehr ähnlich zu einer Struktur, ABER !!!!!!!!!!!!!!!
+
+Alle Variablen der Union liegen
+im Speicher ÜBEREINANDER / an derselben Stelle.
+
+Why ?????????????????????????????????????????
+
+Beispiel wie RGB oder eine IP-Adresse veranschaulicht ....
+
+===================================================== 
+
+Enum:   ==> Pascal
+
+==> Bessere Lesbarkeit
+
+Go for Enum.
+
+====================================================
+
+Low-Level Programmierung
+========================
+
+Spezielle Operatoren für Bit-weise Verarbeitung.
+
+& (Binäres Und)  , | (Binäres Oder)  , Exklusives Oder (^), Negation (~)
+
+Schiebe-Operationen: << und >>
+
+1. Beispiel:
+
+              10110011
+              11001101
+Binäres UND:  10000001
 
 
-15:30
+2. Beispiel:
+
+               10110001
+               11001101
+Binäres ODER:  11111101
+
+
+3. Beispiel:
+
+                  1011 0001
+                  1100 1101
+Exklusiver ODER:  0111 1100   == 7C
+
+
+====================================  
+
+Schieben:
+
+0010'0011
+
+Nach links um 2 Bits schieben:
+
+1000'1100 
+
+Es werden unten 2 Nullen reingezogen.
+
+
+VORSICHT:
+
+2. Beispiel:
+
+short:  16 Bits:
+
+1000 1010 1100 0011
+
+Nach rechts um 2 Bits schieben:
+
+??10 0010 1011 0000
+
+2 Antworten:
+
+a) signed short (short) ==> Es werden von oben 1 nachgezogen,
+            wenn aktuell das oberste Bit eine 1 ist (weil die Zahl negativ ist)
+
+            Andernfalls 0-en.
+
+b) unsigned short 
+
+   Es werden 0 nachgezogen.
+
+==============================================
+
+Ein Bit setzen:
+
+=============>
+             |
+value: 11010101010101
+mask:  00000010000000
 =====
+OR     11010111010101
+
+Wie erhalten wir diese Maske ???
+
+0000000000100
+
+Mit 1 << pos;
+
+Ein Bit löschen:
+
+================>
+                |
+value: 11010101010101
+mask:  11111111101111
+=====
+AND    11010111010101
+
+Hinleitung:
+
+00000010000000  ==> invertieren:
+11111101111111
+
+Binäre Not: Aus 0 mach 1, aus 1 mach 0
+
+======================================================
+

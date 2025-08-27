@@ -103,6 +103,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdclatest</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +141,8 @@
     <ClCompile Include="Topic_09_Global_Variables.c" />
     <ClCompile Include="Topic_10_Structs.c" />
     <ClCompile Include="05_Uebung_Wallet.c" />
+    <ClCompile Include="Topic_11_Bitfelder_Unions_Enums.c" />
+    <ClCompile Include="Topic_12_Binary_LowLevel_Programming.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
