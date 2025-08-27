@@ -35,7 +35,7 @@ void eingabe()
 
 int main()
 {
-    test_using_local_variabes();
+    test_using_struct();
 
     return 0;
 }

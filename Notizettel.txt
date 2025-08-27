@@ -1058,6 +1058,20 @@ extern int g_globalValue;
 
 Lebensdauer: Für die gesamte Laufzeit eines Programms !!!
 
+Bemerkung:
+
+Man kann die Verfügbarkeit einer globalen Variablen einschränken:
+
+a) nur in einer Datei 
+
+b) nur in einem Unterprogramm  // Gegenstück zur Charakteristik einer lokalen Variablen
+
+Moral:
+
+"Scattering" von globalen Variablen zu vermeiden
+
+Benutze static so viel wie möglich .....
+
 ----------------------------------------------------------
 
 a) Lokale Variablen:
@@ -1113,13 +1127,152 @@ Don't go for this feature.
 ================================================
 
 Speicherbereiche:
+----------------
 
-Global
-Lokal ==> Stack
-Dynamisch ==> Heap
+i)   Global ==> Datensegment
+ii)  Lokal ==> Stack
+iii) Dynamisch ==> Heap  // Halde (kommt noch)
 
 Strukturen
 
 Dynamische Speicherverwaltung
 
+================================================
 
+Lokale Variablen:
+
+Stehen in einem Unterprogramm (Block) zur Verfügung
+Nach dem Verlassen des Unterprogramms sind sie weg.
+
+Frage: Wie kann man so etwas datentechnisch realisieren ???
+
+Antwort: Stapel // Stack 
+
+
+Unterprogramm:
+
+  int a; 
+  int b;
+
+  ==> 2. Unterprogramm:
+
+      int x;
+      int y;
+      int z;
+
+  <===
+
+  a = 3;
+  b = 4;
+
+Bereich: "Stack" // Stack-Segment // Stapel
+
+Register: Stack-Pointer
+
+Unterprogramm-Aufrufs // Stack 
+
+===> "Stack-Frame"
+
+Die "Stack-Frame"s eines laufenden Programms werden im Fenster "Call Stack" visualisiert.
+
+==========================================================
+
+Intel CPU:
+
+Klassisch: 4 zentrale Segmente 
+
+Aktuell:   6 Segmente
+
+Segment-Register 
+
+===========================================================
+
+Strukturen
+
+// Java, C#:  Der Vorgänger von Klassen
+
+Was ist eine Struktur?
+
+Eine Zusammenfassung von mehreren Variablen (auch unterschiedlichen Datentyps)
+in einem gemeinsamen Sprachkonstrukt:
+
+Beispiel:
+
+Uhrzeit:  Stunden, Minuten und Sekunden
+
+9:54:30 
+
+int hours;
+int minutes;
+int seconds;
+
+int hours1;
+int minutes1;
+int seconds1;
+
+SYNTAX:
+
+struct Name 
+{
+};
+
+
+Alignment: Was ist das ???
+
+Eine Festlegung, wo (elementare) Variablen im Speicher liegen 
+in Bezug auf die Speicheradresse!
+
+Beispiel:
+
+int n;    // 0x1024
+
+Frage: Könnte n auch an der Adresse 0x1025 liegen ?????
+
+Prinzipiell ja:
+
+Praxis:
+Auf eine Variable // Speicherbereich mit mehreren Bytes
+(int: 4 Bytes) wird über den Datenbus eine Adresse geschoben.
+
+Eine CPU möchte diesen Zugriff PERFORMANT gestalten:
+Damit das PERFORMANT geht, können / müssen in manchen Situationen
+die Adressen VIELFACHE der GRÖSSE der Variablen sein.
+
+Konkret:
+
+Eine Variable wie n (int) kann liegen an
+
+0x1024: Ja
+0x1025: Nein
+0x1026: Nein
+0x1027: Nein
+0x1028: Ja
+
+
+Aber:
+
+char vieleZeichen[4];
+
+Hier liegen die Array-Variablen DICHT im Speicher.
+
+
+Weitere Frage:
+
+Welches Alignment hat eine Struktur:
+
+Den Wert des größten Alignments in Bezug auf alle enthaltenen Variablen.
+
+=================================================================
+
+Exkurs:
+
+Objekt-Orientierung:
+
+Objekt-Orientierung in C für Arme.
+
+=================================================================
+
+Strukturen an Funktionen übergeben:
+
+10:50
+=====
