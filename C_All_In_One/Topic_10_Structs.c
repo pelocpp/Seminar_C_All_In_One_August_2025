@@ -1,15 +1,8 @@
 #include <stdio.h>
 
-struct time
-{
-    int  hours;
-    int  minutes;
-    int  seconds;
-};
+#include "Time.h"
 
-typedef struct time Time;
-
-void test_using_struct_01()
+static void test_using_struct_01()
 {
     struct time now;
 
@@ -24,7 +17,7 @@ void test_using_struct_01()
     than.seconds = 0;
 }
 
-void test_using_struct_02()
+static void test_using_struct_02()
 {
     Time now;
 
@@ -45,7 +38,77 @@ void test_using_struct_02()
     };
 }
 
+//static void printTime(Time time)
+//{
+//    printf("%02d:%02d:%02d\n", time.hours, time.minutes, time.seconds);
+//}
+
+static void printTime(const Time* time)
+{
+    printf("%02d:%02d:%02d\n", time->hours, time->minutes, time->seconds);
+}
+
+//static void resetTime(Time time)
+//{
+//    time.hours = 0;
+//    time.minutes = 0;
+//    time.seconds = 0;
+//}
+
+void resetTime(Time* time)
+{
+    //time.hours = 0;
+    //time.minutes = 0;
+    //time.seconds = 0;
+
+    //(*time).hours = 0;
+    //(*time).minutes = 0;
+    //(*time).seconds = 0;
+
+    time->hours = 0;
+    time->minutes = 0;
+    time->seconds = 0;
+}
+
+int compareTimes(const Time* left, const Time* right)
+{
+    if (left->hours != right->hours) {
+        return 0;
+    }
+    else if (left->minutes != right->minutes) {
+        return 0;
+    }
+    else if (left->seconds != right->seconds) {
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
+
+void test_using_struct_03()
+{
+    Time now = { 10, 55, 0 };
+    printTime(&now);
+
+    resetTime(&now);
+    printTime(&now);
+}
+
+void test_using_struct_04()
+{
+    Time now = { 10, 55, 0 };
+    printTime(&now);
+
+    Time than = { 10, 55, 1 };
+    printTime(&than);
+
+    int cmp = compareTimes(&now, &than);
+
+    printf("Vergleich: %d\n", cmp);
+}
+
 void test_using_struct()
 {
-    test_using_struct_02();
+    test_using_struct_04();
 }

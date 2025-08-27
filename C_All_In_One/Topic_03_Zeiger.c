@@ -10,10 +10,10 @@ void pointer()
 
     // An welcher Adresse liegt n in diesem Programm
 
-    ip = &n;
+    ip = &n;   // Eine Adresse nehmen // eine Adresse referenziert eine Variable // referenzieren
 
     // Wert 456 der Variablen n zuweisen, ohne den Variablennamen
     // n zu verwenden :)
-    *ip = 456;    // Wert-von // Value-of Operator
+    *ip = 456;    // Wert-von // Value-of Operator // Dereferenzieren
 }
 

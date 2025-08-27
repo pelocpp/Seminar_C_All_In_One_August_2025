@@ -1262,17 +1262,87 @@ Welches Alignment hat eine Struktur:
 
 Den Wert des größten Alignments in Bezug auf alle enthaltenen Variablen.
 
+
+=================================================================
+
+Strukturen an Funktionen übergeben:
+
+https://github.com/pelocpp/cpp_introduction/blob/master/Cpp_Introduction/Markdown/ParameterPassingTechniques.md
+
+
+Voreinstellung: Call-by-Value    ==> KOPIE
+
+Benötigen:      Call-by-Address  ==> Adresse (==> Original)
+
+==================================================================
+
+static void printTime(Time time)
+{
+    printf("%02d:%02d:%02d\n", time.hours, time.minutes, time.seconds);
+}
+
+Hat so funktioniert :)
+
+Belassen wir printTime so oder wechseln wir auch hier zur Übergabe einer Adresse ???
+
+Wir sollten auch hier zu einer Adresse wechseln!
+
+Was ist das Problem mit Kopien von Strukturvariablen ??? ==> Laufzeit , Performanz:
+
+Beobachtung:
+
+Strukturvariablen, die von einem UNTERPROGRAMM NICHT geändert werden sollten,
+können bei Übergabe einer Adresse geändert werden.
+
+Abhilfe:
+
+Keyword const
+
 =================================================================
 
 Exkurs:
 
 Objekt-Orientierung:
 
-Objekt-Orientierung in C für Arme.
+"Objekt-Orientierung in C für Arme".
 
-=================================================================
+Wie könnte das aussehen:
 
-Strukturen an Funktionen übergeben:
+== Beschreibung der Daten:
 
-10:50
-=====
+In einer Struktur (C++/C#/Java: Klasse)
+
+== Beschreibung der Methoden:
+
+C: Durch Funktionen, die die Struktur als ersten Parameter haben.
+
+In C++/C#/Java:
+Innerhalb der Klasse
+
+== Vorbelegung von Strukturvariablen (C++/C#/Java: Objekt)
+
+C: Mit einer Vorbelegungslistem
+   zB
+
+   Time now = { 10, 55, 0 };
+
+C++/C#/Java: Konstruktoren
+
+   Time now = new Time { 10, 55, 0 };   // C#/Java
+
+== Destruktoren:
+
+   Kommt noch.
+
+====================================================
+
+C kennt keinen Datentyp bool:
+
+Konvention:
+
+Man nehme int an Stelle von bool.
+
+false: 0
+true: ungleich 0
+
+====================================================
