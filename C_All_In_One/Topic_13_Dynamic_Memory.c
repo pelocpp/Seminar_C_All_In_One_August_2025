@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-void dynamic_data_01()
+static  void dynamic_data_01()
 {
     // eine int-Variable:   4 Bytes
     // eine char-Variable:  1 Byte
@@ -27,7 +27,7 @@ void dynamic_data_01()
 }
 
 
-void weitereVerarbeitung(int* data)
+static void weitereVerarbeitung(int* data)
 {
     *data = 456;
     printf("Wert: %d\n", *data);
@@ -36,7 +36,7 @@ void weitereVerarbeitung(int* data)
     free(data);    // geht das ???
 } 
 
-void dynamic_data_02()
+static void dynamic_data_02()
 {
     int* ptr = (int*) malloc(sizeof(int));
 
@@ -48,7 +48,7 @@ void dynamic_data_02()
     free(ptr);    // geht das ???
 }
 
-void dynamic_data_03()
+static void dynamic_data_03()
 {
     // Anlegen eines Arrays
     // int zahlen[10];  <======  FIXED SIZE: 10
@@ -85,21 +85,21 @@ void dynamic_data_03()
 }
 
 
-void vorbelegen(int* ptr, int count, int wert)
+static void vorbelegen(int* ptr, int count, int wert)
 {
     for (int i = 0; i != count; ++i) {
         ptr[i] = wert * i;                     // oder *(ptr + i)
     }
 }
 
-void ausgeben(int* ptr, int count)
+static void ausgeben(int* ptr, int count)
 {
     for (int i = 0; i != count; ++i) {
         printf("%d: %d\n", i, *(ptr + i));  // oder ptr[i]
     }
 }
 
-void dynamic_data_04()
+static void dynamic_data_04()
 {
     // Anlegen eines Arrays
     // int zahlen[10];  <======  FIXED SIZE: 10
@@ -118,13 +118,13 @@ void dynamic_data_04()
     free(ptr);
 }
 
-void dynamic_data_05()
+static void dynamic_data_05()
 {
-    int feld[10];   // Stack
+    int feld[10] = {};   // Stack
 
      int* ptr = (int*) malloc(20);
 
-     printf("ptr: %08lX\n", ptr);
+     printf("ptr: %08p\n", ptr);
 
      free(ptr);
 

@@ -81,6 +81,9 @@
     <ClCompile Include="Topic_15_CRT.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="07_Uebung_Zeichenketten_Dynamic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">

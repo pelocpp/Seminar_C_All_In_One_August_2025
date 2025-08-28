@@ -15,7 +15,7 @@ int g_globalValue = 123;
 //    return 0;
 //}
 
-void eingabe()
+static  void eingabe()
 {
     printf("Bitte Wert eingeben: ");
 
@@ -36,7 +36,7 @@ void eingabe()
 
 int main()
 {
-    test_crt();
+    exercise_zeichenkettenverarbeitung_dynamisch();
 
     return 0;
 }

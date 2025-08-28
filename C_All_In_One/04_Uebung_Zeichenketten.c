@@ -492,7 +492,7 @@ static void exercise_03_str_remove()
 
 // =====================================================================================
 
-void exercise_zeichenkettenverarbeitung()
+static void exercise_zeichenkettenverarbeitung()
 {
     exercise_01_str_toUpper();
     exercise_01_str_toLower();

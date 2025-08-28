@@ -29,3 +29,4 @@ extern void test_crt();
 extern void exercise_teuflische_folge();
 extern void exercise_zinsberechnung();
 extern void exercise_tauschen();
+extern void exercise_zeichenkettenverarbeitung_dynamisch();
