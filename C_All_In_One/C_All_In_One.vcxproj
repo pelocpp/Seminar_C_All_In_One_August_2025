@@ -143,6 +143,7 @@
     <ClCompile Include="05_Uebung_Wallet.c" />
     <ClCompile Include="Topic_11_Bitfelder_Unions_Enums.c" />
     <ClCompile Include="Topic_12_Binary_LowLevel_Programming.c" />
+    <ClCompile Include="Topic_13_Dynamic_Memory.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />

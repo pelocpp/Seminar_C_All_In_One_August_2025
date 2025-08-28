@@ -22,6 +22,7 @@ extern void test_variabes_visibility();
 extern void test_using_struct();
 extern void test_bitfields_unions_enums();
 extern void low_level_programming();
+extern void dynamic_data();
 
 extern void exercise_teuflische_folge();
 extern void exercise_zinsberechnung();

@@ -1533,3 +1533,220 @@ Binäre Not: Aus 0 mach 1, aus 1 mach 0
 
 ======================================================
 
+Dynamischen Speicherverwaltung:
+
+3 zentrale Speicherbereiche in C:
+
+= glob. Daten
+= lok. Daten
+= dyn. Daten
+
+Vergleich: Java, C#
+
+1 (ggf. 2) zentrale Speicherbereiche:
+
+= dyn. Daten
+= lok. Daten - aber nur für Referenzen
+
+Was ist der Nachteil von lok. Daten ???
+
+=> Zwischenergebnisse
+
+Habe nur eine kurze Lebensdauer.
+
+// Man kann Adressen
+
+Optimale: dyn. Daten
+
+== Anforderung bei Befarf.
+== Freigabe, wenn nicht mehr benötigt
+
+Wie anfordern ???
+
+Nicht in der Sprache definiert.
+==> Bibliothek.
+
+malloc  // memory allocate
+free    // free
+
+C++ Pendants:
+new
+delete
+
+// ======================================================
+
+Typkonvertierungen:  Exlplizit ( mit Cast ) oder implizit (nix zu tun)
+
+ 
+ 
+ '=': conversion from '__int64' to 'short', possible loss of data
+
+ '=': conversion from 'double' to '__int64', (possible) loss of data
+
+ Ähnlich:
+
+
+  'initializing': truncation from 'double' (8) to 'float' (4)
+
+
+
+ possible loss of data:
+
+ Kentnisse: Unser Wert auf der rechten Seite PASST IN DIE LINKE SEITE !!!
+
+
+// ======================================================
+
+int  ==> ganze Zahlen, positive und negative
+
+Es gibt Situtationen, wo keine negativen Werte in Erscheinung treten:
+
+int s = sizeof (int);
+
+// Puristen:
+
+size_t s = sizeof (int);
+
+unsigned long long == size_t
+
+
+// ======================================================
+
+Achtung: Jeder RESERVIERTE Speicher (malloc) muss mit free freigegeben werden.
+
+Zu jedem malloc muss es ein free geben !!!!!!!!!!!!!!!!!!!!!
+
+// ======================================================
+
+malloc: Liefert einen Zeiger zurück auf den Heap.
+
+Wenn kein Speicher vorhanden: NULL
+
+Best-Practice:
+
+    int* ptr = (int*) malloc(wieviel);
+
+    if (ptr == NULL) {
+
+Macht man das wirklich so ??????????
+
+a) bei kleinen Anforderungen: Nein.
+
+b)  int* ptr = (int*) malloc(100'000);
+
+Bei der Verarbeitung großer Datenmengen: JA.
+
+======================================================
+
+Was ist das Problem der dynamischen Speicherverwaltung ?
+
+===> Wer ruft free auf ??? !!!!!!!!!!!!!!!!!!!!!!!
+
+So dass kein Speicher am Ende verloren geht !!!
+
+------------------------------------------------------
+
+Was passiert, wenn 2 Mal free aufgerufen wird???
+
+Es schadet ja nichts, wenn 2 Mal freigegeben wird :)   "double free"  // "double delete"
+
+Katastrophe: Im Speicher auf der Halde sind neben den freien Blöcken für die Anwenung
+             auch Verwaltungsinformationen der so gen. Freispeicher-Liste vorhanden.
+
+https://github.com/pelocpp/cpp_clean_performant_secure/blob/master/Clean_Performant_Code/Performance_Optimization_Advanced/Readme_Performance_Optimization_Advanced_Fixed_Size_Block_Memory_Manager.md
+
+
+========================================================
+
+Java, C#:
+
+Time t = new Time();
+
+delete: Java, C#:  ===> Gibt es nicht: Diese Sprachen räumen selbständig auf.
+
+                   Garbage Collection
+
+Beobachtung:
+
+C++:
+
+Time* t = new Time();
+delete t;
+
+C:
+
+Time* t = (Time*) malloc(sizeof (Time));
+free(t);
+
+
+C/C++: Hohe Performanz:
+
+Java/C#:  Indirektion über eine virtuelle Maschine.
+
+=====================================
+
+Dyn. Speicherverwaltung:
+
+Umsetzung / Vertiefung an Hand einer Übung.
+
+Feld variabler Länge: Strukturierte Lösung.
+
+Struktur:
+
+Idee:
+
+// -----------------------------------
+// types
+
+struct DynamicIntArray
+{
+    int*    m_data;  // Anfangsadresse
+    size_t  m_count; // Länge des Felds  // immer groesser Null
+};
+
+// -----------------------------------
+// function prototypes
+
+int initDynamicIntArray(struct DynamicIntArray* array, size_t length);  // malloc
+
+void releaseDynamicIntArray(struct DynamicIntArray* array);             // free
+
+void fillDynamicIntArray(struct DynamicIntArray* array, int value);
+
+size_t getLength(struct DynamicIntArray* array);
+
+int get(struct DynamicIntArray* array, int index);
+
+void set(struct DynamicIntArray* array, int index, int value);
+
+int minimum(struct DynamicIntArray* array);
+
+int maximum(struct DynamicIntArray* array); 
+
+int indexOf(struct DynamicIntArray* array, int value);
+
+int equalsDynamicIntArray(struct DynamicIntArray* array, struct DynamicIntArray* other);
+
+int containsDynamicIntArray(struct DynamicIntArray* array, int value);
+
+void printDynamicIntArray(struct DynamicIntArray* array);
+
+
+
+// -----------------------------------
+// function prototypes
+
+void main()
+{
+    struct DynamicIntArray array = { NULL, 0 };   // leeres Feld
+
+    initDynamicIntArray (&array, 10);
+
+    // array.m_data[99]
+
+    releaseDynamicIntArray(&array);
+}
+
+https://github.com/pelocpp/c_introduction/blob/master/C_Introduction/Exercises/DynamicIntArray/Exercises_DynamicIntArray.md
+
+

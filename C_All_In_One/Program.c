@@ -36,7 +36,8 @@ void eingabe()
 
 int main()
 {
-    low_level_programming();
+    //variables_datatypes();
+    dynamic_data();
 
     return 0;
 }
