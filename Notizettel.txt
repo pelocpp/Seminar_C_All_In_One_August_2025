@@ -1732,7 +1732,6 @@ int containsDynamicIntArray(struct DynamicIntArray* array, int value);
 void printDynamicIntArray(struct DynamicIntArray* array);
 
 
-
 // -----------------------------------
 // function prototypes
 
@@ -1750,3 +1749,27 @@ void main()
 https://github.com/pelocpp/c_introduction/blob/master/C_Introduction/Exercises/DynamicIntArray/Exercises_DynamicIntArray.md
 
 
+===========================================================
+
+Bemerkung:
+
+malloc:  Reserviert Speicher, OHNE diesen auf 0 vorzubelegen.
+
+calloc:  Reserviert Speicher und belegt diesen auf 0 vor.
+
+Performanz:
+
+void *malloc(
+   size_t count,  // Anzahl in Bytes // 
+
+);
+
+void *calloc(
+   size_t number,  // Anzahl der Element
+   size_t size     // sizeof (int)
+);
+
+
+
+13:30
+=====

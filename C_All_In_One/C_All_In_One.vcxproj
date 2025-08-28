@@ -129,6 +129,7 @@
     <ClCompile Include="02_Uebung_Zinsen.c" />
     <ClCompile Include="03_Uebung_Tauschen_Swap.c" />
     <ClCompile Include="04_Uebung_Zeichenketten.c" />
+    <ClCompile Include="06_Uebung_DynamicIntArray.c" />
     <ClCompile Include="Program.c" />
     <ClCompile Include="Topic_01_Datatypes_Variabes.c" />
     <ClCompile Include="Topic_02_Konstrollstrukturen.c" />
@@ -146,9 +147,10 @@
     <ClCompile Include="Topic_13_Dynamic_Memory.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="06_Uebung_DynamicIntArray.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Time.h" />
-    <ClInclude Include="Uebung_05_Wallet.h" />
+    <ClInclude Include="05_Uebung_Wallet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

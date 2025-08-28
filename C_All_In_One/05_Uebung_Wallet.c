@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-#include "Uebung_05_Wallet.h"
+#include "05_Uebung_Wallet.h"
 
 // =====================================================================================
 // Implementation
