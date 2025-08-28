@@ -40,6 +40,16 @@ C++, Java, C#, Python, JavaScript ....
 
 ===============================================================
 
+C:  Dennis Ritchie
+
+Warum so selten Fehler, meist nur Warnings:
+
+"A Programmer knows what he does" :)
+
+===============================================================
+
+
+
 GitHub
 
 ===============================================================
@@ -1707,20 +1717,23 @@ struct DynamicIntArray
 // -----------------------------------
 // function prototypes
 
-int initDynamicIntArray(struct DynamicIntArray* array, size_t length);  // malloc
 
+// API:  Application Programming Interface
+
+// Struktur DynamicIntArray: Programming Interface einer Struktur
+
+
+
+int initDynamicIntArray(struct DynamicIntArray* array, size_t length);  // malloc
 void releaseDynamicIntArray(struct DynamicIntArray* array);             // free
 
 void fillDynamicIntArray(struct DynamicIntArray* array, int value);
 
 size_t getLength(struct DynamicIntArray* array);
-
 int get(struct DynamicIntArray* array, int index);
-
 void set(struct DynamicIntArray* array, int index, int value);
 
 int minimum(struct DynamicIntArray* array);
-
 int maximum(struct DynamicIntArray* array); 
 
 int indexOf(struct DynamicIntArray* array, int value);
@@ -1730,6 +1743,11 @@ int equalsDynamicIntArray(struct DynamicIntArray* array, struct DynamicIntArray*
 int containsDynamicIntArray(struct DynamicIntArray* array, int value);
 
 void printDynamicIntArray(struct DynamicIntArray* array);
+
+// ========
+
+int resizeDynamicIntArray(struct DynamicIntArray* array, int newLength);
+int shrinkToFitDynamicIntArray(struct DynamicIntArray* array);
 
 
 // -----------------------------------
@@ -1769,7 +1787,211 @@ void *calloc(
    size_t size     // sizeof (int)
 );
 
+// ==========================================================================
+
+Möchte ich die Länge des Arrays verändern können ???
+
+// ==========================================================================
+
+Nebenbei Frage:
+
+C++   ==> DynamicIntArray
+
+Java: ArrayList : Yessssssssssssssss
+
+Python Liste
+
+C++:  STL:    std::vector
+
+C++/Java/C#:  Allgemeiner:  std::vector<T>
+
+In C hat man KEINE Möglichkeit, Datentypen (wie in Java, C++ ... ) auszutauschen, generisch zu halten.
+
+// ==========================================================================
 
 
-13:30
-=====
+Letzte Anmerkung:
+
+In Sprachen wie  Java, C++ und C# kann man Objekte KOPIEREN:
+
+VORSICHTIG:
+
+Java / C#:
+
+Time t1 = new Time(...);
+Time t2 = new Time(...);
+
+t1 = t2;    // 1. Frage: Ist t2 eine Kopie von t1: NEIN, es wird nur eine Referenz umgesetzt
+
+t1 = t2.clone();    // 2 Frage: Könnte man eine Kopie irgendwie anders bekommen ???
+
+C:  
+
+Time soll dabei eine Struktur sein.
+
+Time t1 = { 10, 30, 0 };
+Time t2 = { 12, 30, 0 };
+
+t1 = t2;
+
+Auch hierzu eine Frage:
+
+struct dynamicIntArray
+{
+    int*    m_data;
+    size_t  m_length;
+};
+
+struct dynamicIntArray array1;
+struct dynamicIntArray array2;
+
+array1 = array2;  // Sehen wir da ein Problem ????????????????????
+
+A) VORSICHT - NICHT TUN :-)))))))))
+
+Yes: Da ist eine Adresse mit drin ... hierdurch entstehen Probleme !!!!
+
+B) Kopier-Konstruktor // Copy-Constructor
+
+Nachahmung des Kopier-Konstruktors im Stile von C++
+
+releaseDynamicIntArray (& array1);
+
+releaseDynamicIntArray (& array2);
+
+Können wir dieses Problem in C lösen:
+
+Wir könnten den Copy-Constructor nachstellen / imitieren :)
+
+void  createDynamicIntArrayFromDynamicIntArray (DynamicIntArray* array, DynamicIntArray* other)
+
+================================================================
+
+Bemerkung:
+
+    if (array->m_data == (int*) 0) {   // mir gefällt das besser:  LESBARKEIT
+
+    if (array->m_data == NULL) {
+
+================================================================
+
+2. Übung:
+=========
+
+Was ist die Kernzone von C++:   "Zeiger und dynmische Daten".
+
+
+Wir betrachten folgenden C-Funktionsprototyp:
+
+
+// Beispiel:
+
+// An "12345" soll "ABC" angehängt werden: "12345ABC"
+
+void str_append (const char* original, const char* toAppend);
+
+Lösung vom Mittwoch:
+
+// hier musste man ein char-Array übergeben: char* dest, int destLen
+// Wie lange soll denn dieses Array sein ???????????????
+// Problematisch
+static int str_append(const char* src, const char* toAppend, char* dest, int destLen);
+
+
+A) 1. Versuch:
+
+char* str_append (const char* original, const char* toAppend);
+
+Hier wird eine Adresse zurückgegeben: via malloc gebildet werden.
+
+char* result = str_append ("12345", "ABC");
+
+Pro:     Der Speicherbedarf für das Ergebnis kann EXAKT gebildet / berechnet werden.
+
+Contra:  Der Ergebniszeiger (hier: result) MUSS an free gereicht werden,
+         wenn ich das Ergebnis nicht mehr benötige !!!!!!!!!!!!!!!!!
+
+A) 2. Versuch:
+
+char* result = NULL;   // <=== Ergebnis von str_append soll hier reingeschrieben werden
+
+int str_append (const char* original, const char* toAppend, char** ergebnis);
+
+Aufruf:
+
+int success = str_append ("12345", "ABC", &result);
+
+
+Rückgabewert 'int':
+
+= 0: malloc ist fehlgeschlagen, kein Ergebnis
+
+= 1: str_append hat funktioniert.
+
+==========================================================
+
+
+ptr: F95AE550
+Done.
+
+Detected memory leaks!
+Dumping objects ->
+C:\\Topic_13_Dynamic_Memory.c(123) : {82} normal block at 0x000001C6F95AE550, 20 bytes long.
+ Data: <                > CD CD CD CD CD CD CD CD CD CD CD CD CD CD CD CD 
+Object dump complete.
+
+CC CC CC: Beim Array
+
+Nicht vorbelegt // von Werten die am STACK liegen
+
+Beim malloc:
+
+CD CD CD CD CD CD CD CD CD CD CD CD CD CD CD CD
+
+Nicht vorbelegt // von Werten die am HEAP liegen
+
+==============================================================
+
+Zeichenketten: Gibt es denn da keine Unterstützung von einer  Bibliothek:
+
+CRT:  C Runtime Library 
+
+Abschnitt zu Zeichenketten:
+
+===============================================
+
+11 zum Ersten
+
+
+strcat_s  ==> str_append
+
+===============================================
+
+Fading Out:
+
+https://github.com/pelocpp/c_introduction/blob/master/C_Introduction/Exercises/ZeichenkettenverarbeitungDynamisch/ZeichenkettenverarbeitungDynamisch.md
+
+int str_append(const char* original, const char* toAppend, char** result);
+
+ODER
+
+char* str_append(const char* original, const char* toAppend)
+
+<string.h>
+
+strlen (original);
+
+strlen (toAppend);
+
+Summe bilden dieser Wert -- Vorsicht: Kleinigkeit zu beachten ... 
+
+
+malloc (von dieser berechneten Länge)
+
+Länge: Exakt
+
+Kopiert die beiden Zeichenketten original und toAppend um
+
+und gebt die Adresse zurück.
+
+

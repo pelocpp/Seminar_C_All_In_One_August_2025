@@ -2,11 +2,6 @@
 
 #include "Time.h"
 
-
-#include "Uebung_05_Wallet.h"
-
-#include "Uebung_05_Wallet.h"
-
 static void test_using_struct_01()
 {
     struct time now;
@@ -37,10 +32,12 @@ static void test_using_struct_02()
 
     // designated initializer syntax
     Time later = {
-        .hours = 12,
-        .minutes = 30,
+        .hours = 19,
+        .minutes = 59,
         .seconds = 0
     };
+
+    later = than;  // Wertzuweisung: DAS GEHT !!!!!!!!!!!!!!!!
 }
 
 //static void printTime(Time time)
@@ -123,5 +120,5 @@ void test_using_struct_04()
 
 void test_using_struct()
 {
-    test_using_struct_04();
+    test_using_struct_02();
 }

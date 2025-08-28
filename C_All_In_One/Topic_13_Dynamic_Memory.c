@@ -1,5 +1,8 @@
-#include <stdio.h>
+#define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
+#include <crtdbg.h>
+
+#include <stdio.h>
 
 void dynamic_data_01()
 {
@@ -115,7 +118,22 @@ void dynamic_data_04()
     free(ptr);
 }
 
+void dynamic_data_05()
+{
+    int feld[10];   // Stack
+
+     int* ptr = (int*) malloc(20);
+
+     printf("ptr: %08lX\n", ptr);
+
+     free(ptr);
+
+     printf("Done.\n");
+}
+
 void dynamic_data()
 {
-    dynamic_data_04();
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+    dynamic_data_05();
 }

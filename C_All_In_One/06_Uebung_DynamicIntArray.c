@@ -51,7 +51,7 @@ static void createDynamicIntArrayFromArray(DynamicIntArray* array, int* values, 
 static void createDynamicIntArrayFromDynamicIntArray(DynamicIntArray* array, DynamicIntArray* other)
 {
     array->m_data = (int*) malloc(sizeof(int) * other->m_length);
-    if (array->m_data == (int*)0) {
+    if (array->m_data == (int*) 0) {
         printf("Out of memory");
         return;
     }
@@ -111,7 +111,7 @@ static int resizeDynamicIntArray(DynamicIntArray* array, int newLength)
     else {
 
         // allocate new (temporary) buffer
-        int* tmp = (int*) calloc(newLength, sizeof(int));
+        int* tmp = (int*) calloc(newLength, sizeof(int));   // Anzahl Element * Groesse eines Elements
         if (tmp == NULL) {
             printf("resizeDynamicIntArray: Out of memory");
             return 0;
@@ -119,7 +119,7 @@ static int resizeDynamicIntArray(DynamicIntArray* array, int newLength)
         else {
 
             // copy current buffer into new one
-            // (rest of buffer is initialize with default values due to use of calloc)
+            // (rest of buffer is initialized with default value 0 due to use of calloc)
             for (size_t i = 0; i < array->m_length; ++i) {
                 tmp[i] = array->m_data[i];
             }
@@ -363,6 +363,7 @@ static void exercise_DynamicIntArray_07()
 
     // Lösung
     DynamicIntArray da2;
+    //                                      Target  // Source
     createDynamicIntArrayFromDynamicIntArray(&da2, &da1);
 
     printDynamicIntArray(&da1);

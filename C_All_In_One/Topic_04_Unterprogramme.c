@@ -31,12 +31,14 @@ void unterprogramm_01()
 
 // ===========================================
 
+//           char*
 void malZwei(int wert)
 {
     wert = wert * 2;
 }
 
 // 2. Variante: Aufruf mit einer Adresse einer Variablen
+//                char**
 void malZweiEx(int* ptr)   
 {
     // Stilistik: Beginner // Learner

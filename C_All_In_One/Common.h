@@ -23,6 +23,8 @@ extern void test_using_struct();
 extern void test_bitfields_unions_enums();
 extern void low_level_programming();
 extern void dynamic_data();
+extern void pointer_zum_zweiten();
+extern void test_crt();
 
 extern void exercise_teuflische_folge();
 extern void exercise_zinsberechnung();

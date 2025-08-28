@@ -36,8 +36,7 @@ void eingabe()
 
 int main()
 {
-    //variables_datatypes();
-    dynamic_data();
+    test_crt();
 
     return 0;
 }

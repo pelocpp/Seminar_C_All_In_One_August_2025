@@ -75,6 +75,12 @@
     <ClCompile Include="06_Uebung_DynamicIntArray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Topic_14_Pointer_Zum_Zweiten.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_15_CRT.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
