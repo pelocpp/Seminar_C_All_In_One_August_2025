@@ -36,7 +36,7 @@ static  void eingabe()
 
 int main()
 {
-    main_jagged_arrays();
+    main_array_of_structs();
 
     return 0;
 }

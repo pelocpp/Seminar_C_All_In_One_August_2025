@@ -28,6 +28,7 @@ extern void test_crt();
 extern void test_linked_list();
 extern void mainMultidimensionalArrays();
 extern void main_jagged_arrays();
+extern void main_array_of_structs();
 
 extern void exercise_teuflische_folge();
 extern void exercise_zinsberechnung();

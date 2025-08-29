@@ -1,7 +1,9 @@
 // #define _CRT_SECURE_NO_WARNINGS 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 static void crt_01()
 {
@@ -55,9 +57,92 @@ static void crt_03()
     printf("%s\n", dest);
 }
 
+static void crt_04()
+{
+    const char string1[] = "Hello";
+    const char string2[] = "World";
+    const char string3[] = "Hello";
 
+    if (strcmp(string1, string2) == 0)
+    {
+        printf("The strings %s und %s are identical.\n", string1, string2);
+    }
+    else
+    {
+        printf("The strings %s und %s are different.\n", string1, string2);
+    }
+
+    if (strcmp(string1, string3) == 0)
+    {
+        printf("The strings %s und %s are identical.\n", string1, string3);
+    }
+    else
+    {
+        printf("The strings %s und %s are different.\n", string1, string3);
+    }
+}
+
+static void crt_05()
+{
+    // single character functions
+    char ch;
+
+    ch = 'A';
+    printf("%d\n", isalpha(ch));
+
+    ch = '1';
+    printf("%d\n", isalpha(ch)); // a .. z, A .. Z
+
+    printf("%d\n", isdigit(ch));  // 0 .. 9 
+
+    printf("%d\n", isalnum(ch));  //  a .. z, A .. Z und 0..9
+
+    ch = 'A';
+    ch = tolower(ch);     // ch >= 'a' && ch <= 'z'
+    printf("%c\n", ch);
+
+    ch = toupper(ch);
+    printf("%c\n", ch);
+}
+
+static void crt_06()
+{
+    // ascii to integer
+    int n =     atoi("1234");   // ascii to integer 
+    printf("%d\n", n);
+
+    n = atoi("1234XXX");
+    printf("%d\n", n);
+
+    n = atoi("XXX1234");
+    printf("%d\n", n);
+
+    n = atoi("0");
+    printf("%d\n", n);
+}
+
+static void crt_07()
+{
+    // Eingabe von num. Werten
+    printf("Eingabe: ");
+    int n = 0;
+    scanf_s("%d", &n);
+    printf("Wert: %d\n", n);
+
+    // Eingabe einer Zeichenkette (ohne Leerzeichen)
+    printf("Eingabe Zeichenkette: ");
+    char buffer[64];
+    scanf_s("%s", buffer, 64);
+    printf("Wert: %s\n", buffer);
+
+    // Eingabe einer Zeichenkette (ohne Leerzeichen)
+    printf("Eingabe Zeichenkette: ");
+    gets_s(buffer, 64);
+    scanf_s("%s", buffer, 64);
+    printf("Wert: %s\n", buffer);
+}
 
 void test_crt()
 {
-    crt_03();
+    crt_07();
 }

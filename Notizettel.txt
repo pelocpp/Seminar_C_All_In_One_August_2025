@@ -2059,7 +2059,111 @@ c) void releaseJaggedArray(int** jaggedArray, int numRows);
 
 ===============================================================
 
-Feld von Strukturen: 
+CRT // Bibliothek
+------------------
 
-13:30
-=====
+strcmp
+
+Vergleich von Zeichenketten:   Lexikographischer Vergleich
+
+Antwort:
+
+kleiner:    < 0
+gleich:     0
+groesser:   > 0
+
+
+===============================================================
+
+Feld von Strukturen
+-------------------
+
+
+Beispiel:
+
+Kontakteverwaltung bzw. Telefonbuch
+
+Ein Kontakt:
+
+Name, Nachname
+Tel. Nr.
+Adresse
+
+
+
+Beispiel: Hans Mueller
+
+Die Namen werden von der Konsole eingelesen.
+
+==> Feld von Zeichen:
+
+WIE LANGE ????  Das Feld dynamisch erstellen.
+
+Lösung: 2 Schritten
+
+A) Eingabe von der Konsole (App Tastatur):
+
+char buffer [1000];   // da brauche ich ein FELD mit einer ausreichenden Länge
+
+B) Die Länge berechnen, die eingegeben worden ist:
+
+  strlen auf buffer angewendet.
+
+C) Dynamisch ein Feld der Länge Len + 1 anlegen.
+
+D) buffer umkopieren
+
+E) Die Adresse in einer struct entry Variablen ablegen.
+
+struct entry
+{
+    char*   m_firstName;
+    // char    m_firstName [32];  // Das ist nicht elegant // ratsam
+    char*   m_lastName;
+    size_t  m_number;
+};
+
+Wie kann man viele derartige Einträge in einem Array ablegen:
+
+struct entry entries[100];  // mehr wie 100 geht da mal nicht ...
+
+// DynamicIntArray // DynamicEntryArray 
+
+// ===========================================
+
+Achtung:
+
+Lokale Variablen werden (ohne Init.) NICHT vorbelegt.
+
+Globale Variablen werden (ohne Init.) mit 0 // NULL vorbelegt.
+
+
+Wie erkenne ich eine freie Stelle in dem globalen Array g_entries ???
+
+1. Antwort: Dort, wo eine Tel.Nummer mit 0 vorhanden ist (0 ist keine gültige Nr.)
+
+2. Antwort: Noch besser:
+
+==============================================================================
+
+1 Stunde:
+
+a) Nachname fehlt.
+
+b) Tel. Nummer fehlt
+
+c) Print: Ausgabe aller vorhandenen Einträge (belegten)
+
+d) Eine Nummer suchen:
+
+  i) Auf der Konsole Vorname und Nachname eingeben.
+
+  ii) Im Tel.Buch diese beiden namen suchen  (strcmp )
+
+  iii) Wenn gefunden: *number = gefunden Wert rausschreiben.
+
+  searchNumber (....., size_t* number)  // <=====
+
+e) Das Tel.buch löschen:
+
+  Für alle Vor- und Nachnamen free aufrufen.
