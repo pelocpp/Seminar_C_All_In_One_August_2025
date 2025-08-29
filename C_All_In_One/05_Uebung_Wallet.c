@@ -9,7 +9,7 @@
 // =====================================================================================
 // Implementation
 
-void initWallet(Wallet* wallet, unsigned long long euros, unsigned int cents)
+static void initWallet(Wallet* wallet, unsigned long long euros, unsigned int cents)
 {
     if (cents >= 100) {
         printf("Cents larger than 100 are not allowed!\n");
@@ -22,17 +22,17 @@ void initWallet(Wallet* wallet, unsigned long long euros, unsigned int cents)
     wallet->m_euros = euros;
 }
 
-unsigned long long getEuros(const Wallet* wallet)
+static unsigned long long getEuros(const Wallet* wallet)
 {
     return wallet->m_euros;
 }
 
-unsigned int getCent(const Wallet* wallet)
+static unsigned int getCent(const Wallet* wallet)
 {
     return wallet->m_cents;
 }
 
-void addWallet(Wallet* wallet, Wallet* other)
+static void addWallet(Wallet* wallet, Wallet* other)
 {
     wallet->m_cents = wallet->m_cents + other->m_cents;
     unsigned int carry = wallet->m_cents / 100;
@@ -40,19 +40,19 @@ void addWallet(Wallet* wallet, Wallet* other)
     wallet->m_euros = wallet->m_euros + other->m_euros + carry;
 }
 
-void addEuros(Wallet* wallet, unsigned long long euros)
+static void addEuros(Wallet* wallet, unsigned long long euros)
 {
     wallet->m_euros = wallet->m_euros + euros;
 }
 
-void addEurosAndCents(Wallet* wallet, unsigned long long euros, unsigned int cents)
+static void addEurosAndCents(Wallet* wallet, unsigned long long euros, unsigned int cents)
 {
     Wallet tmp = { euros, cents };
 
     addWallet(wallet, &tmp);
 }
 
-int subWallet(Wallet* wallet, Wallet* other)
+static int subWallet(Wallet* wallet, Wallet* other)
 {
     if (lessThan(wallet, other)) {
         printf("Not enough money available in wallet!\n");
@@ -72,7 +72,7 @@ int subWallet(Wallet* wallet, Wallet* other)
     return 1;
 }
 
-int subEuros(Wallet* wallet, unsigned long long euros)
+static int subEuros(Wallet* wallet, unsigned long long euros)
 {
     if (wallet->m_euros < euros) {
         printf("Not enough money available in wallet!\n");
@@ -84,14 +84,14 @@ int subEuros(Wallet* wallet, unsigned long long euros)
     return 1;
 }
 
-int subEurosAndCents(Wallet* wallet, unsigned long long euros, unsigned int cents)
+static int subEurosAndCents(Wallet* wallet, unsigned long long euros, unsigned int cents)
 {
     Wallet tmp = { euros, cents };
 
     return subWallet(wallet, &tmp);
 }
 
-int lessThan(const Wallet* wallet, const Wallet* other)
+static int lessThan(const Wallet* wallet, const Wallet* other)
 {
     if (wallet->m_euros < other->m_euros) {
         return 1;
@@ -104,7 +104,7 @@ int lessThan(const Wallet* wallet, const Wallet* other)
     }
 }
 
-int equals(const Wallet* wallet, const Wallet* other)
+static int equals(const Wallet* wallet, const Wallet* other)
 {
     if (wallet->m_euros == other->m_euros && wallet->m_cents == other->m_cents) {
         return 1;
@@ -114,12 +114,12 @@ int equals(const Wallet* wallet, const Wallet* other)
     }
 }
 
-unsigned long long toCents(const Wallet* wallet)
+static unsigned long long toCents(const Wallet* wallet)
 {
     return 100 * wallet->m_euros + wallet->m_cents;
 }
 
-void print(const Wallet* wallet)
+static void printWallet(const Wallet* wallet)
 {
     printf("%llu,%02u Euro\n", wallet->m_euros, wallet->m_cents);
 }
@@ -128,13 +128,13 @@ static void exercise_wallet_01()
 {
     Wallet wallet = { 0, 0 };
 
-    print(&wallet);
+    printWallet(&wallet);
 
     addEurosAndCents(&wallet, 10, 50);
-    print(&wallet);
+    printWallet(&wallet);
 
     subEurosAndCents(&wallet, 5, 75);
-    print(&wallet);
+    printWallet(&wallet);
 
     unsigned long long cents = toCents(&wallet);
     printf("Cents: %llu\n", cents);
@@ -145,23 +145,23 @@ static void exercise_wallet_02()
     Wallet wallet1 = { 3, 30 };
     Wallet wallet2 = { 3, 30 };
 
-    print(&wallet1);
-    print(&wallet2);
+    printWallet(&wallet1);
+    printWallet(&wallet2);
 
     int equal = equals(&wallet1, &wallet2);
     printf("Wallets are equal: %d\n", equal);
 
     subEurosAndCents(&wallet1, 3, 28);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     subEurosAndCents(&wallet1, 0, 1);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     subEurosAndCents(&wallet1, 0, 1);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     subEurosAndCents(&wallet1, 0, 1);
-    print(&wallet1);
+    printWallet(&wallet1);
 }
 
 static void exercise_wallet_03()
@@ -170,13 +170,13 @@ static void exercise_wallet_03()
     Wallet wallet2 = { 3, 30 };
     Wallet wallet3 = { 3, 30 };
 
-    print(&wallet1);
+    printWallet(&wallet1);
 
     addWallet(&wallet1, &wallet2);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     addWallet(&wallet1, &wallet3);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     unsigned long long cents = toCents(&wallet1);
     printf("Cents: %llu\n", cents);
@@ -187,19 +187,19 @@ static void exercise_wallet_04()
     Wallet wallet1 = { 0, 3 };
     Wallet wallet2 = { 0, 1 };
 
-    print(&wallet1);
+    printWallet(&wallet1);
 
     subWallet(&wallet1, &wallet2);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     subWallet(&wallet1, &wallet2);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     subWallet(&wallet1, &wallet2);
-    print(&wallet1);
+    printWallet(&wallet1);
 
     subWallet(&wallet1, &wallet2);
-    print(&wallet1);
+    printWallet(&wallet1);
 }
 
 void exercise_wallet()

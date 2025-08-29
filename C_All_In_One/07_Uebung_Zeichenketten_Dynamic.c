@@ -74,9 +74,10 @@ void exercise_zeichenkettenverarbeitung_dynamisch()
     char* result = NULL;
 
     // 1. Variante: einfachere Betrachtung
-    result = str_append_01("Hello ", "World!");
+    result = str_append_01("Hello ", "World!");   // malloc
     printf("Ergebnis 1: %s\n", result);
-    free(result);
+    
+    free(result);                                 // free
 
     // 2. Variante: Rückgabe des Ergebnisses durch einen Adress-Parameter
     result = NULL;

@@ -84,6 +84,15 @@
     <ClCompile Include="07_Uebung_Zeichenketten_Dynamic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Topic_16_LinkedList.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_17_MultiDim_Arrays.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Topic_18_Jagged_Arrays.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">

@@ -25,8 +25,12 @@ extern void low_level_programming();
 extern void dynamic_data();
 extern void pointer_zum_zweiten();
 extern void test_crt();
+extern void test_linked_list();
+extern void mainMultidimensionalArrays();
+extern void main_jagged_arrays();
 
 extern void exercise_teuflische_folge();
 extern void exercise_zinsberechnung();
 extern void exercise_tauschen();
 extern void exercise_zeichenkettenverarbeitung_dynamisch();
+extern void exercise_wallet();

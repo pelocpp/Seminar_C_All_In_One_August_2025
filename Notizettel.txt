@@ -26,13 +26,17 @@ https://github.com/pelocpp/c_introduction
 
 ===============================================================
 
-Ab Dienstag:
+Am Freitag:
 
-Felder (Arrays)
+Verkettete Liste // Linked List
 
-Stack
+Mehr.dim Arrays ==> Gezackten Felder // jagged Arrays
 
-Zeichen und Zeichenketten
+Wozu / wann benötigebn wir dyn. Speicherverwaltung
+
+Die C-Standardbibliothek CRT (C-Runtime-Library)
+
+Arrays of Structs
 
 =====================================================
 
@@ -1995,3 +1999,67 @@ Kopiert die beiden Zeichenketten original und toAppend um
 und gebt die Adresse zurück.
 
 
+===============================================================
+
+Verkettete Liste // Linked List
+
+Solltet ihr in Produkt-SW nicht selbst schreiben,
+sondern aus einer Bibliothek // Github-Repo verwenden.
+
+Siehe auch in den Aufgaben des Begleitmaterials.
+
+===============================================================
+
+Mehrdimensionale Arrays:
+
+Genauer:
+
+Feld von Feldern.
+
+Wie wird ein mehr-dim Feld an ein Unterprogramm übergeben ???
+
+
+===============================================================
+
+Mehrdimensionale Arrays, deren einzelne Reihen unterschiedlich lang sind.
+
+Jagged-Array:
+
+
+Wo steht die Information der einzelnen Längen einer bestimmten Reihe:
+
+Prinzipiell nirgends.
+
+Lösung: Die Längenangaben müssen in einem zweiten Array aufgehoben werden.
+
+
+Übung:
+
+Erstellen Sie ein jagged Array.
+
+Die i-te Zeile soll i Elemente enthalten.
+
+In allen Elemente soll fortlaufend nummeriert werden:
+
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+
+Die Anzahl der Zeilen ist als Parameter an das Unterpramm zu übergeben.
+
+Erstellen Sie zu diesem Zweck die folgenden Unterprogramme:
+
+a) int** createJaggedArray();
+
+b) void printJaggedArray(int** jaggedArray, int numRows);
+
+c) void releaseJaggedArray(int** jaggedArray, int numRows);
+
+===============================================================
+
+Feld von Strukturen: 
+
+13:30
+=====

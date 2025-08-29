@@ -33,7 +33,7 @@ int                 subEurosAndCents (      Wallet* wallet, unsigned long long e
 int                 lessThan         (const Wallet* wallet, const Wallet* other);
 int                 equals           (const Wallet* wallet, const Wallet* other);
 unsigned long long  toCents          (const Wallet* wallet);
-void                print            (const Wallet* wallet);
+void                printWallet      (const Wallet* wallet);
 
 // =====================================================================================
 // End-of-File

@@ -36,7 +36,7 @@ static  void eingabe()
 
 int main()
 {
-    exercise_zeichenkettenverarbeitung_dynamisch();
+    main_jagged_arrays();
 
     return 0;
 }
