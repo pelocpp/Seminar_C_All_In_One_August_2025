@@ -23,7 +23,7 @@ struct Entry
     char*     m_firstName;
     char*     m_lastName;
     size_t    m_phone;
-    int       m_isEmpty;
+    int       m_isEmpty;    // NotEmpty vs. Empty
 };
 
 // global
@@ -36,6 +36,7 @@ static void initPhonebook();
 static void enterEntry();
 static void searchEntry();
 static void printEntry(struct Entry* contact);
+static void printEntries();
 static void clearEntries();
 static void printfMenu();
 
@@ -143,7 +144,7 @@ static void printEntry(struct Entry* contact)
     printf("\n");
 }
 
-static void printEntrys()
+static void printEntries()
 {
     for (int i = 0; i < MaxEntries; i++) {
 
