@@ -35,3 +35,4 @@ extern void exercise_zinsberechnung();
 extern void exercise_tauschen();
 extern void exercise_zeichenkettenverarbeitung_dynamisch();
 extern void exercise_wallet();
+extern void exercise_contacts_dynamic();

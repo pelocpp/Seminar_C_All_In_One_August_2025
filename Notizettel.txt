@@ -2,9 +2,12 @@
 
 Peter Loos
 
+peter.loos@gmx.de
+-----------------
+
 C All In One
 
-C eine Woche:
+C in einer Woche:
 
 Feedback:
 
@@ -26,20 +29,6 @@ https://github.com/pelocpp/c_introduction
 
 ===============================================================
 
-Am Freitag:
-
-Verkettete Liste // Linked List
-
-Mehr.dim Arrays ==> Gezackten Felder // jagged Arrays
-
-Wozu / wann benötigebn wir dyn. Speicherverwaltung
-
-Die C-Standardbibliothek CRT (C-Runtime-Library)
-
-Arrays of Structs
-
-=====================================================
-
 C++, Java, C#, Python, JavaScript ....
 
 ===============================================================
@@ -51,13 +40,6 @@ Warum so selten Fehler, meist nur Warnings:
 "A Programmer knows what he does" :)
 
 ===============================================================
-
-
-
-GitHub
-
-===============================================================
-
 
 Allgemeines:
 
@@ -2167,3 +2149,6 @@ d) Eine Nummer suchen:
 e) Das Tel.buch löschen:
 
   Für alle Vor- und Nachnamen free aufrufen.
+
+===============================================================
+

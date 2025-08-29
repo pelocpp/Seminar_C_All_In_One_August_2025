@@ -96,6 +96,9 @@
     <ClCompile Include="Topic_19_Phonebook.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="08_Uebung_Phonebook.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">

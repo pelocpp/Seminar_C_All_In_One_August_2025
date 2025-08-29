@@ -131,6 +131,7 @@
     <ClCompile Include="04_Uebung_Zeichenketten.c" />
     <ClCompile Include="06_Uebung_DynamicIntArray.c" />
     <ClCompile Include="07_Uebung_Zeichenketten_Dynamic.c" />
+    <ClCompile Include="08_Uebung_Phonebook.c" />
     <ClCompile Include="Program.c" />
     <ClCompile Include="Topic_01_Datatypes_Variabes.c" />
     <ClCompile Include="Topic_02_Konstrollstrukturen.c" />
